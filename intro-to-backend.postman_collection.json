@@ -1,0 +1,196 @@
+{
+  "info": {
+    "name": "Intro to Backend Assignment",
+    "description": "API collection for testing User Authentication and Post CRUD endpoints.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/",
+          "host": ["{{baseUrl}}"],
+          "path": [""]
+        }
+      }
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "1. Register User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"demo_user\",\n  \"email\": \"demo@example.com\",\n  \"password\": \"demo123\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/users/register",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "users", "register"]
+            }
+          }
+        },
+        {
+          "name": "2. Login User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"demo@example.com\",\n  \"password\": \"demo123\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/users/login",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "users", "login"]
+            }
+          }
+        },
+        {
+          "name": "3. Logout User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"demo@example.com\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/users/logout",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "users", "logout"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Posts",
+      "item": [
+        {
+          "name": "1. Create Post",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Kina\",\n  \"description\": \"Martial arts artist\",\n  \"age\": 26\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/posts/create",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "posts", "create"]
+            }
+          }
+        },
+        {
+          "name": "2. Get All Posts",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/posts/",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "posts", ""]
+            }
+          }
+        },
+        {
+          "name": "3. Get Post by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/posts/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "posts", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "PASTE_POST_ID_HERE"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "4. Update Post",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Lily\",\n  \"description\": \"A cute flower\",\n  \"age\": 2\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/posts/update/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "posts", "update", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "PASTE_POST_ID_HERE"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "5. Delete Post",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/posts/delete/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "posts", "delete", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "PASTE_POST_ID_HERE"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:4000"
+    }
+  ]
+}
